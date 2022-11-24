@@ -1,0 +1,51 @@
+affinity: {}
+deploymentAnnotations: {}
+env:
+  SMTP_USERNAME: 'no-reply@openfellas.com'
+  SMTP_SSL: 'false'
+  SMTP_PORT: '587'
+  SMTP_PASSWORD: 'JLFvHtbL0foEpYGulRnqL4F05ouKaU'
+  SMTP_HOST: 'smtp.office365.com'
+  SMTP_FROM: 'no-reply@openfellas.com'
+  SMTP_EXPLICIT_TLS: true
+  SIGNUPS_ALLOWED: false
+  SHOW_PASSWORD_HINT: false
+  SERVER_ADMIN_EMAIL: 'security@openfellas.com'
+  INVITATIONS_ALLOWED: true
+  DOMAIN: 'bitwarden.openfellas.com'
+  ADMIN_TOKEN: 'VtCPH0B15BZo5j2MC3SlHARU7vGHu7'
+fullnameOverride: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: bitwardenrs/server
+  tag: latest
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: 'true'
+  enabled: true
+  hosts:
+    - bitwarden.openfellas.com
+  path: /
+  tls:
+    - hosts:
+        - bitwarden.example
+      secretName: bitwarden-tls-cert-bitwarden
+nameOverride: ''
+nodeSelector: {}
+persistence:
+  accessMode: ReadWriteOnce
+  enabled: true
+  size: 5Gi
+  storageClass: longhorn
+podAnnotations: {}
+replicaCount: 1
+resources: {}
+service:
+  loadBalancerIP: null
+  port: 80
+  type: ClusterIP
+tolerations: []
+
+enutzername: no-reply@openfellas.com
+Temporäres Kennwort: Hap85834

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitlab-tls-cert-registry
+  namespace: gitlab
+spec:
+  dnsNames:
+  - registry.openfellas.com
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt
+  secretName: gitlab-tls-cert-registry
+
